@@ -47,14 +47,17 @@
         console.log(place);
         if (place.geometry.viewport) {
           map.fitBounds(place.geometry.viewport);
+            map.setZoom(15);
         } else {
           map.setCenter(place.geometry.location);
-          map.setZoom(17);
+          map.setZoom(15);
         }
 
       });
       map.addListener('click', function(evt) {
         placeMarker(evt.latLng);
+        console.log(evt.latLng.lat().toFixed(3));
+        console.log(evt.latLng.lng().toFixed(3));
       });
 
     }
